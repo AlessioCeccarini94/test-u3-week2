@@ -67,7 +67,6 @@ const Details = () => {
                 </Card>
               </Col>
             ))}
-            {/* Messaggio se non ci sono dati filtrati */}
             {dailyForecasts.length === 0 && (
               <Col xs={12} className="text-center text-muted">
                 Nessuna previsione giornaliera trovata.
