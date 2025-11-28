@@ -8,32 +8,31 @@ const Search = function () {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const SearchingCity = async (cityName) => {
+  const SearchingCity = (cityName) => {
     if (!cityName) return
 
     setLoading(true)
     setError(null)
     setWeatherData(null)
+    const URL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=97ab1f2ca067001a39f0a1f84a73ce34&units=metric`
 
-    const URL =
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=97ab1f2ca067001a39f0a1f84a73ce34&units=metric`
-
-        .then((res) => {
-          if (res.ok) {
-            return res.json()
-          } else {
-            throw new Error("City not found")
-          }
-        })
-        .then((cities) => {
-          setWeatherData(cities), setLoading(false)
-          console.log(cities)
-        })
-        .catch((error) => {
-          console.log(error)
-          setLoading(false)
-          setError(error.message)
-        })
+    fetch(URL)
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error("City not found")
+        }
+      })
+      .then((cities) => {
+        setWeatherData(cities), setLoading(false)
+        console.log(cities)
+      })
+      .catch((error) => {
+        console.log(error)
+        setLoading(false)
+        setError(error.message)
+      })
   }
 
   const handleSubmit = (e) => {
