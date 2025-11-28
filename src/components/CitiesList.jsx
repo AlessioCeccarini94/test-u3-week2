@@ -28,10 +28,7 @@ const CitiesList = ({ props }) => {
   useEffect(() => {
     getCity(props)
   }, [props])
-  //  onClick={() => {
-  //           getCity(props)
-  //           navigate("/search")
-  //         }}
+
   return (
     <>
       {loading && (
