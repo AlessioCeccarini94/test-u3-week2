@@ -12,7 +12,11 @@ const SingleCity = ({ data }) => {
           <Card.Title>
             {data.city.name},{data.city.country}
           </Card.Title>
-          <Card.Text>{data.list[0].weather[0].description}</Card.Text>
+          <Card.Text>
+            {data.list[0].weather[0].description}
+            <br />
+            {data.list[0].main.temp}°
+          </Card.Text>
           <Button
             onClick={() => navigate("/details/" + data.city.id)}
             variant="light"

@@ -42,6 +42,7 @@ function App() {
                   "bologna",
                   "torino",
                   "gorgo al monticano",
+                  "mortegliano",
                 ]}
               />
             }
